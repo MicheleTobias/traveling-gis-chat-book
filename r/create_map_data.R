@@ -58,7 +58,7 @@ js_map_points<-paste0(
 )
 
 # write the text to the javascript file
-file_connection<-file("./data/locations.js")
+file_connection<-file("./docs/locations.js")
 writeLines(text=js_map_points, con=file_connection)
 close(file_connection)
 
