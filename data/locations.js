@@ -1,0 +1,1 @@
+var locations={"type":"FeatureCollection","features":[{"type":"Feature","properties":{"city":"Grand Rapids","state":"MI","country":"USA"},"geometry":{"type":"Point","coordinates":[-85.6678639,42.9632405]}},{"type":"Feature","properties":{"city":"Davis","state":"CA","country":"USA"},"geometry":{"type":"Point","coordinates":[-121.744583,38.545379]}}]}
