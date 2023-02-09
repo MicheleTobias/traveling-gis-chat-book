@@ -39,7 +39,8 @@ new_latlong<-to_geocode %>%
 # combine the two tables to make one list of all the cities with their lat/longs
 to_plot<-rbind(has_latlong, new_latlong)
 
-
+# write the data back to the csv so don't need to geocode every line every time it updates
+write.csv(to_plot, file="./data/locations.csv")
 
 
 # Create GeoJSON & Javascript ---------------------------------------------
