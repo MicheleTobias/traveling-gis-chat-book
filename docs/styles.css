@@ -16,5 +16,10 @@ h1 {
 
 p {
   font-family: Century Gothic;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+intro {
+  font-family: Century Gothic;
+  font-size: 20px; 
 }
