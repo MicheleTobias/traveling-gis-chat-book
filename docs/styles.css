@@ -19,7 +19,18 @@ p {
   font-size: 15px;
 }
 
-intro {
+.intro {
   font-family: Century Gothic;
   font-size: 20px; 
+}
+
+.fine_print {
+  font-size: 15px;
+  color: gray
+}
+
+.rounded_box {
+  background-color: white; 
+  border-radius: 25px; 
+  padding: 20px
 }
