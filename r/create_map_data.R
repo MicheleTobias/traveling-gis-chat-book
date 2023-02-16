@@ -45,7 +45,7 @@ if (dim(to_geocode)[1]>0){
 
 
 # write the data back to the csv so don't need to geocode every line every time it updates
-write.csv(to_plot, file="./data/locations.csv")
+write.csv(to_plot, file="./data/locations.csv", row.names = FALSE)
 
 
 # Create GeoJSON & Javascript ---------------------------------------------
