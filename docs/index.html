@@ -63,8 +63,16 @@
         ext: 'png'
         });
         bookmap.addLayer(Stamen_Toner);
-		
-	var bookline = L.geoJSON(book_line).addTo(bookmap);
+	
+	//add book travel line from the GeoJSON (book_line.js) file	
+	var lineStyle = {
+		"color": "orange",
+		"weight": 5,
+		"opacity": .25
+	};
+	var bookline = L.geoJSON(book_line, {
+		style: lineStyle
+		}).addTo(bookmap);
 		
 	//add book location points from the GeoJSON (locations.js) file
 
