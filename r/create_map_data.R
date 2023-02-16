@@ -28,16 +28,21 @@ has_latlong<-locations[which(!is.na(locations$lat)),]
 # a table of rows that need to be geocoded
 to_geocode<-locations[which(is.na(locations$lat)), 1:3]
 
-# geocode the new rows
-new_latlong<-to_geocode %>% 
-  geocode(city=city,
-          state=state,
-          country=country,
-          method="osm"
-          )
+if (dim(to_geocode)[1]>0){
+  # geocode the new rows
+  new_latlong<-to_geocode %>% 
+    geocode(city=city,
+            state=state,
+            country=country,
+            method="osm"
+    )
+  # combine the two tables to make one list of all the cities with their lat/longs
+  to_plot<-rbind(has_latlong, new_latlong)
+  
+}else{to_plot<-has_latlong}
 
-# combine the two tables to make one list of all the cities with their lat/longs
-to_plot<-rbind(has_latlong, new_latlong)
+
+
 
 # write the data back to the csv so don't need to geocode every line every time it updates
 write.csv(to_plot, file="./data/locations.csv")
@@ -60,6 +65,28 @@ js_map_points<-paste0(
 # write the text to the javascript file
 file_connection<-file("./docs/locations.js")
 writeLines(text=js_map_points, con=file_connection)
+close(file_connection)
+
+
+
+# Make the Lines ----------------------------------------------------------
+
+map_line_df<-as.data.frame(matrix(c("book travel path"), nrow = 1, ncol=1))
+map_line_sfc<-st_linestring(st_coordinates(map_points))
+map_line_df$geometry<-st_geometry(map_line_sfc)
+map_line<-st_sf(map_line_df)
+
+geojson_map_line<-sf_geojson(map_line)
+
+# wrap the GeoJSON text in the javascript declaration Leaflet needs to read GeoJSON
+js_map_line<-paste0(
+  "var book_line=",
+  geojson_map_line
+)
+
+# write the text to the javascript file
+file_connection<-file("./docs/book_line.js")
+writeLines(text=js_map_line, con=file_connection)
 close(file_connection)
 
 
