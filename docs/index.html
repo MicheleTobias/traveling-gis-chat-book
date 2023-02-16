@@ -44,6 +44,8 @@
 
 <script src="locations.js" type="text/javascript"></script>
 
+<script src="book_line.js" type="text/javascript"></script>
+
 <script>
 
     //add an empty map called "bookmap" to the page in the mapid div
@@ -61,6 +63,8 @@
         ext: 'png'
         });
         bookmap.addLayer(Stamen_Toner);
+		
+	var bookline = L.geoJSON(book_line).addTo(bookmap);
 		
 	//add book location points from the GeoJSON (locations.js) file
 
