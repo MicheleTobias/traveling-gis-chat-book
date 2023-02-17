@@ -83,14 +83,22 @@
 		}).addTo(bookmap);
 */
 	
-	var arrow_line = L.polyline(book_coords, {}).addTo(bookmap);
+	var arrow_line = L.polyline(book_coords, {
+		"color": "orange",
+		"weight": 5,
+		"opacity": .5
+		}).addTo(bookmap);
 	
 	var arrows = L.polylineDecorator(arrow_line, {
         patterns: [
 			{
-				offset: '100%',
+				offset: '50%',
 				repeat: 0,
-				symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {stroke: true, style: lineStyle}})
+				symbol: L.Symbol.arrowHead({pixelSize: 8, polygon: false, pathOptions: {
+					"color": "orange",
+					"weight": 5,
+					"opacity": 1, 
+					stroke: true}})
 			}
 		]
     }).addTo(bookmap);
@@ -98,13 +106,15 @@
 	
 	//add book location points from the GeoJSON (locations.js) file
 
-/*
+
     var bookpoints = L.geoJSON(locations, {  
         pointToLayer: function(feature, latlng){  
-            return L.circleMarker(latlng, {color: 'orange', radius: 8});
+            return L.circleMarker(latlng, {
+				color: 'orange', 
+				radius: 4});
         }
     }).addTo(bookmap);
-*/
+
 </script>
 
 </body>
