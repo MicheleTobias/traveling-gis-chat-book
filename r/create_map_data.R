@@ -68,6 +68,28 @@ writeLines(text=js_map_points, con=file_connection)
 close(file_connection)
 
 
+# Write Coordinates to a File ---------------------------------------------
+
+book_coords<-st_coordinates(map_points)
+
+coords.js<-c()
+
+for (i in 1:nrow(book_coords)){
+  new.row<-paste0("[",book_coords[i,2], "," ,book_coords[i,1],"]")
+  coords.js<-c(coords.js, new.row)
+}
+
+coords_to_write<-paste0(
+  "var book_coords = [",
+  paste(as.character(coords.js), sep=",", collapse=","),
+  "]"
+)
+
+# write the text to the javascript file
+file_connection<-file("./docs/book_coords.js")
+writeLines(text=coords_to_write, con=file_connection)
+close(file_connection) 
+
 
 # Make the Lines ----------------------------------------------------------
 
