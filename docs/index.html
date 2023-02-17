@@ -106,12 +106,25 @@
 	
 	//add book location points from the GeoJSON (locations.js) file
 
-
+	var book_icon = L.icon({
+		iconUrl: 'book_icon.png',
+		iconSize:     [25, 26], // size of the icon
+		iconAnchor:   [10, 11]
+	});
+	
+	/*
     var bookpoints = L.geoJSON(locations, {  
         pointToLayer: function(feature, latlng){  
             return L.circleMarker(latlng, {
 				color: 'orange', 
 				radius: 4});
+        }
+    }).addTo(bookmap);
+	*/
+	    var bookpoints = L.geoJSON(locations, {  
+        pointToLayer: function(feature, latlng){  
+            return L.marker(latlng, {
+				icon: book_icon});
         }
     }).addTo(bookmap);
 
