@@ -56,8 +56,8 @@
 
     //add an empty map called "bookmap" to the page in the mapid div
     var bookmap = L.map('mapid', {
-        center: [38.538592, -100.75],
-        zoom: 1
+        center: [38.0, -98.5],
+        zoom: 4
         });
 
     //add the base map = Stamen Toner tile layer
@@ -85,7 +85,7 @@
 	
 	var arrow_line = L.polyline(book_coords, {
 		"color": "orange",
-		"weight": 5,
+		"weight": 4,
 		"opacity": .5
 		}).addTo(bookmap);
 	
@@ -94,7 +94,7 @@
 			{
 				offset: '50%',
 				repeat: 0,
-				symbol: L.Symbol.arrowHead({pixelSize: 8, polygon: false, pathOptions: {
+				symbol: L.Symbol.arrowHead({pixelSize: 7, polygon: false, pathOptions: {
 					"color": "orange",
 					"weight": 5,
 					"opacity": 1, 
