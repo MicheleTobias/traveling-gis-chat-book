@@ -13,7 +13,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v2 #set up the R environment
       - name: Install regular packages
         run:
-          Rscript -e "install.packages(c('tidygeocoder', 'sf', 'geojsonsf'))"
+          Rscript -e "install.packages(c('tidygeocoder', 'sf', 'geojsonsf'), type='win.binary')"
       - name: Create Map Data
         run:
           Rscript -e "source('r/create_map_data.R')"
