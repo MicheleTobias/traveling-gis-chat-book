@@ -1,1 +1,1 @@
-var book_line={"type":"FeatureCollection","features":[{"type":"Feature","properties":{"V1":"book travel path"},"geometry":{"type":"LineString","coordinates":[[-104.984862,39.7392364],[-85.6678639,42.9632405]]}}]}
+var book_line={"type":"FeatureCollection","features":[{"type":"Feature","properties":{"V1":"book travel path"},"geometry":{"type":"LineString","coordinates":[[-104.984862,39.7392364],[-85.6678639,42.9632405],[-84.5553805,42.7337712]]}}]}
