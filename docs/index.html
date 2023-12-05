@@ -56,19 +56,28 @@
 
     //add an empty map called "bookmap" to the page in the mapid div
     var bookmap = L.map('mapid', {
-        center: [38.0, -98.5],
+        center: [40.0, -101],
         zoom: 4
         });
 
     //add the base map = Stamen Toner tile layer
-    var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    
+	/*
+	var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
+        
+		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         subdomains: 'abcd',
         minZoom: 0,
         maxZoom: 20,
         ext: 'png'
         });
         bookmap.addLayer(Stamen_Toner);
+	*/
+		
+	var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 20,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(bookmap);
 	
 	//add book travel line from the GeoJSON (book_line.js) file	
 	var lineStyle = {
